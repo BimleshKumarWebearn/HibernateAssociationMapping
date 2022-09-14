@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.jtcindia.inharitance.Student" table="jacob" schema="system">
+<id name="sid" type="int">
+<generator class="increment"/>
+</id>
+<property name="sname"/>
+<property name="city"/>
+<property name="status"/>
+<property name="totalfee" type="double"/>
+<joined-subclass name="com.jtcindia.inharitance.CurrentStudent" table="cstudent" schema="system">
+<key column="sid"/>
+<property name="feebal"/>
+<property name="timing"/>
+<property name="branch"/>
+</joined-subclass>
+<joined-subclass name="com.jtcindia.inharitance.WeekdayStudent" table="wstudent" schema="system">
+<key column="sid"/>
+<property name="qualification"/>
+<property name="percentage"/>
+<property name="yop"/>
+</joined-subclass>
+<joined-subclass name="com.jtcindia.inharitance.WeekendStudent" table="westudent" schema="system">
+<key column="sid"/>
+<property name="wcompany"/>
+<property name="wemail"/>
+<property name="wctc" type="double"/>
+</joined-subclass>
+<joined-subclass name="com.jtcindia.inharitance.OldStudent" table="ostudemt" schema="system">
+<key column="sid"/>
+<property name="oldcompany"/>
+<property name="oldemail"/>
+<property name="oldctc" type="double"/>
+</joined-subclass>
+
+</class>
+</hibernate-mapping>
